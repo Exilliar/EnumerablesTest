@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using EnumerablesTest.BuiltInMethods;
 using EnumerablesTest.PokemonTypeEnumerable;
 using EnumerablesTest.PersonEnumerable;
 using EnumerablesTest.CalcEnumerable;
@@ -35,6 +36,16 @@ while (enumerator.MoveNext())
 {
     Console.WriteLine(enumerator.Current);
 }
+
+Console.WriteLine("\nPeople collection using my custom foreach method");
+
+CustomBase.ForEach(personCollection, person => Console.WriteLine(person));
+
+Console.WriteLine("\nPeople collection using my custom select method");
+
+IEnumerable<int> ages = personCollection.CustomSelect(person => person.Age);
+
+Console.WriteLine(string.Join(", ", ages));
 
 Console.WriteLine("\nCalc enumerable, adding one each time, max 5");
 
