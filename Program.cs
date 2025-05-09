@@ -1,4 +1,5 @@
-﻿using EnumerablesTest.PokemonTypeEnumerable;
+﻿using System.Collections;
+using EnumerablesTest.PokemonTypeEnumerable;
 using EnumerablesTest.PersonEnumerable;
 using EnumerablesTest.CalcEnumerable;
 
@@ -6,6 +7,7 @@ Person[] people = [new("Rory", 25), new("John", 26), new("Jane", 27)];
 
 PersonCollection peopleCollection = new(people);
 
+Console.WriteLine("People collection by using a foreach");
 foreach (Person person in peopleCollection)
 {
     Console.WriteLine(person);
@@ -26,6 +28,13 @@ foreach (Person person in peopleCollection)
 
 Console.WriteLine("\nFirst two people:");
 Console.WriteLine(string.Join(", ", peopleCollection.Take(2)));
+
+Console.WriteLine("\nPeople collection by directly using the enumerator");
+using IEnumerator<Person> enumerator = peopleCollection.GetEnumerator();
+while (enumerator.MoveNext())
+{
+    Console.WriteLine(enumerator.Current);
+}
 
 Console.WriteLine("\nCalc enumerable, adding one each time, max 5");
 
