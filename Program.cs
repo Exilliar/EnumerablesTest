@@ -5,32 +5,32 @@ using EnumerablesTest.CalcEnumerable;
 
 Person[] people = [new("Rory", 25), new("John", 26), new("Jane", 27)];
 
-PersonCollection peopleCollection = new(people);
+PersonCollection personCollection = new(people);
 
 Console.WriteLine("People collection by using a foreach");
-foreach (Person person in peopleCollection)
+foreach (Person person in personCollection)
 {
     Console.WriteLine(person);
 }
 
 Console.WriteLine("\nPeople who are >25");
 
-Console.WriteLine(string.Join(", ", peopleCollection.Where(p => p.Age > 25)));
+Console.WriteLine(string.Join(", ", personCollection.Where(p => p.Age > 25)));
 
 Console.WriteLine("\nAdding a new person");
 
-peopleCollection.Add(new Person("Jeremy", 24));
+personCollection.Add(new Person("Jeremy", 24));
 
-foreach (Person person in peopleCollection)
+foreach (Person person in personCollection)
 {
     Console.WriteLine(person);
 }
 
 Console.WriteLine("\nFirst two people:");
-Console.WriteLine(string.Join(", ", peopleCollection.Take(2)));
+Console.WriteLine(string.Join(", ", personCollection.Take(2)));
 
 Console.WriteLine("\nPeople collection by directly using the enumerator");
-using IEnumerator<Person> enumerator = peopleCollection.GetEnumerator();
+using IEnumerator<Person> enumerator = personCollection.GetEnumerator();
 while (enumerator.MoveNext())
 {
     Console.WriteLine(enumerator.Current);
