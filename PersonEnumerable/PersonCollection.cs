@@ -5,7 +5,7 @@ namespace EnumerablesTest.PersonEnumerable;
 public class PersonCollection(Person[] people) : IEnumerable<Person>
 {
     private Person[] People = people;
-    
+
     public IEnumerator<Person> GetEnumerator()
     {
         return new PersonEnumerator(People);

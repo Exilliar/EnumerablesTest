@@ -2,8 +2,9 @@
 
 public class Person(string name, int age)
 {
-    public string Name = name;
-    public int Age = age;
+    // ReSharper disable once MemberCanBePrivate.Global
+    public readonly string Name = name;
+    public readonly int Age = age;
 
     public override string ToString()
     {

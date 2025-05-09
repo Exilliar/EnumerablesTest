@@ -25,7 +25,10 @@ public static class CustomBase
     /// <typeparam name="TIn">The type of the items in the collection</typeparam>
     /// <typeparam name="TOut">The output types</typeparam>
     /// <returns>A new enumerable with the outputs of the func on each item in the input collection</returns>
-    public static IEnumerable<TOut> CustomSelect<TIn, TOut>(this IEnumerable<TIn> collection, Func<TIn, TOut> func)
+    public static IEnumerable<TOut> CustomSelect<TIn, TOut>(
+        this IEnumerable<TIn> collection,
+        Func<TIn, TOut> func
+    )
     {
         using IEnumerator<TIn> enumerator = collection.GetEnumerator();
         while (enumerator.MoveNext())

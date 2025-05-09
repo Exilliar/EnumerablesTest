@@ -22,5 +22,5 @@ public class CalcEnumerator(Func<int, int> action, int max, int start = 1) : IEn
 
     object? IEnumerator.Current => Current1;
 
-    public void Dispose() {}
+    public void Dispose() { }
 }

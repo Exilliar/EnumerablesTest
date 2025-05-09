@@ -2,7 +2,9 @@
 
 public class PokemonTypeCollection : IAsyncEnumerable<PokemonType>
 {
-    public IAsyncEnumerator<PokemonType> GetAsyncEnumerator(CancellationToken cancellationToken = new CancellationToken())
+    public IAsyncEnumerator<PokemonType> GetAsyncEnumerator(
+        CancellationToken cancellationToken = new CancellationToken()
+    )
     {
         return new PokemonTypeEnumerator();
     }

@@ -6,7 +6,7 @@ namespace EnumerablesTest.PokemonTypeEnumerable;
 public class PokemonTypeEnumerator : IAsyncEnumerator<PokemonType>
 {
     private int Index = 0;
-    
+
     private PokemonType? Current1;
 
     public async ValueTask<bool> MoveNextAsync()
@@ -31,7 +31,7 @@ public class PokemonTypeEnumerator : IAsyncEnumerator<PokemonType>
         {
             if (e.StatusCode == HttpStatusCode.NotFound)
                 return false;
-            
+
             throw new InvalidOperationException(e.Message);
         }
         catch (JsonException)
@@ -49,7 +49,8 @@ public class PokemonTypeEnumerator : IAsyncEnumerator<PokemonType>
         return textResponse;
     }
 
-    PokemonType IAsyncEnumerator<PokemonType>.Current => Current1 ?? throw new InvalidOperationException();
+    PokemonType IAsyncEnumerator<PokemonType>.Current =>
+        Current1 ?? throw new InvalidOperationException();
 
     public ValueTask DisposeAsync()
     {
